@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 
-function App() {
+function CountApp() {
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
+
+
+  useEffect(() => {
+    console.log("Add count")
+  }, [count])
+
+  useEffect(() => {
+    console.log("Add count2")
+  }, [count2])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Counter</h1>
+      <h2>count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>+ number1</button>
+      <h2>count2: {count2}</h2>
+      <button onClick={() => setCount2(count2 + 1)}>+ number2</button>
+    </>
   );
 }
 
-export default App;
+export default CountApp;
